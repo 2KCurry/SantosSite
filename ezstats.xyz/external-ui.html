@@ -1,0 +1,887 @@
+<!-- Status Text -->
+<span id="status" class="badge-warning">Not connected</span>
+<!-- List Group -->
+<div class="list-group" id="myList" role="tablist"
+	style="width: fit-content; height: 100%; background-color: rgb(24, 24, 24); position: fixed;">
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action active" data-toggle="list" href="#home" role="tab" aria-selected="true">Dashboard</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#catching" role="tab" aria-selected="false">Catching</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#tackling" role="tab" aria-selected="false">Tackling</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#throwing" role="tab" aria-selected="false">Throwing</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#kicking" role="tab" aria-selected="false">Kicking</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#blocking" role="tab" aria-selected="false">Blocking</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#physics" role="tab" aria-selected="false">Physics</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#covering" role="tab" aria-selected="false">Covering</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#misc" role="tab" aria-selected="false">Misc</a>
+	<a class="ltd list-group-item list-group-item-dark list-group-item-action" data-toggle="list" href="#settings" role="tab" aria-selected="false">Settings</a>
+</div>
+<!-- Tab panes -->
+<div class="tab-content" style="width: 80%; left: 12.367vw; position: fixed; height: 100%; margin-top: 10px; color: white;">
+	<div class="tab-pane active" id="home" role="tabpanel">
+		<div class="card darkcard" id="dashboard-card" style="border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Instructions:</h5>
+				<div style="background: rgb(7, 7, 7);width: fit-content;height: 50px;border-radius: 10px;text-align: center;line-height: 47px;padding-left: 10px;padding-right: 10px;">
+					<!-- <code id="script" style="color: rgb(255,75,75);"></code> -->
+					<p style=" font-size: 4vh; margin-top: 3vh; text-shadow: 3px 3px 1px black; ">Type !script in <span style="color: rgb(0,100,255);cursor: pointer;text-decoration: underline;" onclick="document.title=String(Math.random()*1000000)">#bot-commands</span>, then execute your script in the game.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="catching" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; margin-top: 0px; border-width: 0px;">
+			<!-- width: 375px; margin-left: 385px; position:absolute; top:0px;"> -->
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">AutoHands <span class="badge">Sus Level: <span class="badge bg-green">Legit</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoHands.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Brings your hands out when the ball comes near you</p>
+				<!-- <div style="height:15px; width:100%"></div> -->
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Mags <span class="badge">Sus Level: <span class="badge bg-yellow">Medium</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.Mags.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Makes the ball get pulled towards your character when it is near you, allowing you to "mag" it. Simply click to catch like normal.</p>
+				<div>
+					<div class="form-group">
+						<label for="ezstats.Mags.MaxDistance">Max Distance <strong id="ezstats.Mags.MaxDistance">15</strong></label>
+						<input type="range" class="form-control-range" min="0" max="50" value="15" step=".1" id="ezstats.Mags.MaxDistance" onchange="set('ezstats.Mags.MaxDistance',this)">
+					</div>
+				</div>
+				<!-- <div style="height:15px; width:100%"></div> -->
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Auto Jump <span class="badge">Sus Level: <span class="badge bg-green">Legit</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoJump.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Makes you automatically jump at the perfect time to catch the ball.</p>
+			</div>
+		</div>
+		<div class="card darkcard" style="width: 375px; margin-left: 385px; position: absolute; top: 0px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Auto Ball TP <span class="badge">Sus Level: <span class="badge bg-red">Obvious</span></span>
+				</h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoBallTP.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Makes you automatically teleport to the football.</p>
+				<div>
+					<div class="form-group">
+						<label for="ezstats.AutoBallTP.MaxDistance">Max Distance <strong id="ezstats.AutoBallTP.MaxDistance-value">15</strong></label>
+						<input type="range" class="form-control-range" min="0" max="50" value="15" step=".1" id="ezstats.AutoBallTP.MaxDistance" onchange="set('ezstats.AutoBallTP.MaxDistance',this)">
+					</div>
+				</div>
+				<!-- <div style="height:15px; width:100%"></div> -->
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="tackling" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; margin-top: 0px; border-width: 0px;">
+			<!-- width: 375px; margin-left: 385px; position:absolute; top:0px;"> -->
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title"> Auto Tackle <span class="badge">Sus Level: <span class="badge bg-warning" style="color: rgb(35,35,35)">High</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoTackle.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Teleports to the ball-carrier and tackles them.</p>
+				<!-- <div style="height:15px; width:100%"></div> -->
+				<div class="form-group">
+					<label for="tacklereach">Max Distance <strong id="tacklereach-value">5</strong></label>
+					<input type="range" class="form-control-range" min="0" max="30" value="0" step=".25" id="tacklereach" onchange="set('ezstats.AutoTackle.MaxDistance',this)">
+				</div>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Carrier Camera-Lock <span class="badge">Sus Level: <span class="badge bg-green">Legit</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.CarrierCameraLock.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Makes your camera always face the ball-carrier, making it easy to tackle them.</p>
+				<div></div>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Hitbox Expander <span class="badge">Sus Level: <span class="badge bg-yellow">Medium</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.HitboxExpander.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Makes the ball-carrier easier to tackle by making their hitbox larger.</p>
+				<div></div>
+			</div>
+		</div>
+		<div class="card darkcard" style="width: 375px; margin-left: 385px; position: absolute; top: 0px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title"> Auto Follow Carrier <span class="badge">Sus Level: <span class="badge bg-green">Legit</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoFollowCarrier.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Automatically chases the player who is holding the ball.</p>
+				<div class="form-group">
+					<label for="followcarrier_posUpdateDelay">Reaction Time <strong id="followcarrier_posUpdateDelay-value">.5</strong></label>
+					<input type="range" class="form-control-range" min="0" max="1" value=".25" step=".01" id="followcarrier_posUpdateDelay" onchange="set('ezstats.AutoFollowCarrier.ReactionTime',this)">
+				</div>
+				<div class="form-group">
+					<label for="followcarrier_randomDelay">Random Time <strong id="followcarrier_randomDelay-value">.5</strong></label>
+					<input type="range" class="form-control-range" min="0" max="3" value=".5" step=".01" id="followcarrier_randomDelay" onchange="set('ezstats.AutoFollowCarrier.RandomizeTime',this)">
+				</div>
+				<div class="form-group">
+					<label for="followcarrier_randomFactorMin">Random Factor Min <strong id="followcarrier_randomFactorMin-value">-.25</strong></label>
+					<input type="range" class="form-control-range" min="-5" max="0" value="-.25" step=".01" id="followcarrier_randomFactorMin" onchange="set('ezstats.AutoFollowCarrier.RandomizeFactorMin',this)">
+				</div>
+				<div class="form-group">
+					<label for="followcarrier_randomFactorMax">Random Factor Max <strong id="followcarrier_randomFactorMax-value">2</strong></label>
+					<input type="range" class="form-control-range" min="0" max="5" value="2" step=".01" id="followcarrier_randomFactorMax" onchange="set('ezstats.AutoFollowCarrier.RandomizeFactorMax',this)">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="throwing" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Illegal Forward Pass <span class="badge">Sus Level: <span class="badge bg-red">Obvious</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.IllegalForwardPass.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Allows you to throw the ball after you cross the line of scrimmage.</p>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">QB Beam <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Legit</span></span></h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.QBBeam.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text"> Creates a beam showing what the path of the ball will be.<br></p>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">QB Aimbot/Silent Aim <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Legit</span></span></h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.QBAimbot.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text"> Throws perfectly to the reciever you are aiming at. <br></p>
+				<!-- Keybind -->
+				<div class="form-group">
+					<label>Mode Keybind</label><br><span style="font-size: 12px; color: rgb(181,180,180); margin-top: 0;">Key to switch between "Normal" mode and "Bomb" mode.</span>
+					<button class="keybind" onclick="onKeybindFocus('ezstats.QBAimbot.ModeKeybind',this)">None</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="physics" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; top: 0px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title"> WalkSpeed <span class="badge">Sus Level: <span class="badge bg-warning" style="color: black;">High</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.WalkSpeed.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">This makes you run faster. </p>
+				<!-- <div style="height:15px; width:100%"></div> -->
+				<div class="form-group">
+					<label for="walkspeed">WalkSpeed <strong id="walkspeed-value">20</strong></label>
+					<input type="range" class="form-control-range" min="20" max="45" value="20" step=".1" id="walkspeed" onchange="set('ezstats.WalkSpeed.Value',this)">
+				</div>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">No Move Restrictions <span class="badge">Sus Level: <span class="badge bg-red" style="color: rgb(35,35,35)">Obvious</span></span></h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.NoMoveRestrictions.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text"> This allows you to move before the play on kickoffs, fieldgoals, etc. <br></p>
+			</div>
+		</div>
+		<div class="card darkcard" style="width: 375px; position:absolute; margin-left: 385px; top:0px; border-width: 0;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">JumpPower <span class="badge">Sus Level: <span class="badge bg-warning" style="color: black;">High</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.JumpPower.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">This makes you jump higher. </p>
+				<!-- <div style="height:15px; width:100%"></div> -->
+				<div class="form-group">
+					<label for="jumppower">JumpPower <strong id="jumppower-value">50</strong></label>
+					<input type="range" class="form-control-range" min="50" max="80" value="50" step=".1" id="jumppower" onchange="set('ezstats.JumpPower.Value',this)">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="kicking" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Kicker Aimbot <span class="badge">Sus Level: <span class="badge bg-green">Legit</span></span></h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.KickerAimbot.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Kicks perfectly every time! <br> <b>Note: When you are kicking, dont touch anything. Just sit back and wait for it to kick.</b> </p>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="blocking" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Auto Block <span class="badge">Sus Level: <span class="badge badge-warning" style="color: rgb(35,35,35);">High</span></span></h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoBlock.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Automatically spam-blocks nearby players without the blocking animation.<br><span class="badge" style="color:rgb(0, 255, 119); font-size: 18px;">Great for annoying people.</span></p>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Modify Block Range <span class="badge">Sus Level: <span class="badge badge-warning" style="color: rgb(35,35,35);">High</span></span></h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.BlockRange.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Allows you to block players from a greater distance.</p>
+				<div class="form-group">
+					<label for="blockRange">Block Range <strong id="blockRange-value">0</strong></label>
+					<input type="range" class="form-control-range" min="0" max="50" value="0" step=".5" id="blockRange" onchange="set('ezstats.BlockRange.Value',this)">
+				</div>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Anti-Block <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Low</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AntiBlock.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text"> This makes it impossible for people to block you. <br></p>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="tab-pane" id="graphics" role="tabpanel">
+		<div class="card darkcard" style="width: 375px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+		<h5 class="card-title" style="margin: 0;padding: 0;">This Section Was Removed</h5>
+				<p class="card-text">I removed this section due to Football Fusion's annoying anti-cheat. I might add it back at some point.</p>
+			</div>
+		</div>
+		</div> -->
+	<div class="tab-pane" id="misc" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">No Bounds <span class="badge">Sus Level: <span class="badge bg-red">Obvious</span></span></h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.NoBounds.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">This will allow you to go out of bounds but the play will continue as if you were still in bounds.</p>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Get Up Fast <span class="badge">Sus Level: <span class="badge bg-yellow">Medium</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.GetUpFast.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">Makes you get up quickly.</p>
+				<div class="form-group">
+					<label for="getupdelay">Delay <strong id="getupdelay-value">0.25</strong></label>
+					<input type="range" class="form-control-range" min="0" max="5" value=".25" step=".01" id="getupdelay" onchange="set('ezstats.GetUpFast.Delay',this)">
+				</div>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Underground <span class="badge">Sus Level: <span class="badge bg-red" style="color: rgb(35,35,35)">Obvious</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.Underground.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">This allows you to go under ground, making you invisible to other players.<br></p>
+				<!-- Keybind -->
+				<div class="form-group">
+					<label>Keybind:</label>
+					<button class="keybind" onclick="onKeybindFocus('ezstats.Underground.Bind',this)">None</button>
+				</div>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">No Jump Cooldown <span class="badge">Sus Level: <span class="badge bg-warning" style="color: rgb(35,35,35)">High</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.NoJumpCooldown.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;"> This allows you to spam-jump with no delay. <br></p>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Ball Tracer <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Legit</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.BallESP.Tracer.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text"> Creates a visual line indicating the location of the ball. <br></p>
+				<div class="form-group">
+					<label for="BallESP_tracerThickness">Thickness <strong id="BallESP_tracerThickness-value">1</strong></label>
+					<input type="range" class="form-control-range" min=".1" max="10" value="1" step=".1" id="BallESP_tracerThickness" onchange="set('ezstats.BallESP.Tracer.Thickness',this)">
+				</div>
+				<div class="form-group">
+					<label for="ballESP_tracerTransparency">Transparency <strong id="ballESP_tracerTransparency-value">0</strong></label>
+					<input type="range" class="form-control-range" min="0" max="1" value="0" step=".01" id="ballESP_tracerTransparency" onchange="set('ezstats.BallESP.Tracer.Transparency',this)">
+				</div>
+				<div class="form-group color-picker-group" style="padding: 10px; margin-top: 10px;">
+					<label>Color</label>
+					<div class="color-picker-wrapper">
+						<input type="color" value="#FF5050" onchange="set('ezstats.BallESP.Tracer.Color',this)">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card darkcard" style="width: 375px; position: absolute; margin-left: 385px; top: 0px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Auto Captain <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Low</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoCaptain.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;"> Automatically makes you a team captain at the beginning of each game. <br></p>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Anti-Trip <span class="badge">Sus Level: <span class="badge bg-yellow" style="color: rgb(35,35,35)">Medium</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AntiTrip.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;">This prevents you from tripping over players who are on the ground.<br></p>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Server Lagger <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Legit</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.ServerLagger.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;"> This makes the server lag. <br></p>
+				<div class="form-group">
+					<label for="LagIntensity">Intensity <strong id="LagIntensity-value">1</strong></label>
+					<input type="range" class="form-control-range" min="1" max="100" value="1" step=".1" id="LagIntensity" onchange="set('ezstats.ServerLagger.Intensity',this)">
+				</div>
+				<div class="form-group">
+					<label for="LagInterval">Interval <strong id="LagInterval-value">1</strong> sec.</label>
+					<input type="range" class="form-control-range" min="1" max="120" value="1" step=".1" id="LagInterval" onchange="set('ezstats.ServerLagger.Interval',this)">
+				</div>
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Dab Keybind <span class="badge">Sus Level: <span class="badge bg-yellow" style="color: rgb(35,35,35)">Medium</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.DabKeybind.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;"> This lets you dab with the press of a key on your keyboard. <br></p>
+				<!-- Keybind -->
+				<div class="form-group">
+					<label>Keybind</label>
+					<button class="keybind" onclick="onKeybindFocus('ezstats.DabKeybind.Key',this)">None</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="covering" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Auto Cover <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Low</span></span> </h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AutoCover.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important;"> Makes you automatically cover the nearest player. <br> The player covering is indicated by a green circle. <br></p>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="settings" role="tabpanel">
+		<div class="card darkcard" style="width: 375px; border-width: 0px;">
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Anti-Admin</h5>
+				<label class="switch">
+					<input type="checkbox" onchange="set('ezstats.AntiAdmin.Enabled',this)">
+					<span></span>
+				</label>
+				<p class="card-text" style="padding: 0 !important; font-size: 13px;">Switches servers if a Football Fusion admin joins your game.</p>
+				<!-- <br> -->
+			</div>
+			<div class="card-body" style="padding: 5px;margin: 3px;">
+				<h5 class="card-title">Field of View <span class="badge">Sus Level: <span class="badge bg-green" style="color: rgb(35,35,35)">Legit</span></span> </h5>
+				<div class="form-group">
+					<label for="FOV"><strong id="FOV-value">70</strong></label>
+					<input type="range" class="form-control-range" min="70" max="120" value="70" step="1" id="FOV" onchange="set('workspace.CurrentCamera.FieldOfView',this)">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script>
+	if (document.getElementById('myList') && document.getElementsByClassName('tab-content').length > 0 && document.getElementsByClassName('tab-content').length > 0) {
+		setInterval(() => {
+			document.getElementById('myList').style.width = 'fit-content';
+			document.getElementsByClassName('tab-content')[0].style.position = 'fixed';
+			document.getElementsByClassName('tab-content')[0].style.left = String((document.getElementById('myList').clientWidth / visualViewport.width) * 110) + 'vw';
+		}, 1)
+	}
+	setInterval(() => {
+		try {
+			for (let i = 0; i < document.getElementsByClassName('card').length; i++) {
+				const v = document.getElementsByClassName('card')[i];
+				v.style.borderWidth = '0';
+			}
+		} catch (err) {
+			console.warn(err);
+		}
+	}, 1)
+</script>
+<script>
+	/* NOTE: This is to load the titlebar */
+	setTimeout(async () => {
+		console.log('Adding Titlebar!');
+		const path = require('path');
+		const url = require('url');
+
+		const customTitlebar = require('custom-electron-titlebar');
+
+		new customTitlebar.Titlebar({
+			backgroundColor: customTitlebar.Color.fromHex('#2f3241')
+		});
+
+		const replaceText = (selector, text) => {
+			const element = document.getElementById(selector)
+			if (element) element.innerText = text
+		}
+
+		for (const type of ['chrome', 'node', 'electron']) {
+			replaceText(`${type}-version`, process.versions[type])
+		}
+	}, 5000)
+
+</script>
+<script>
+	setTimeout(() => {
+		try {
+			function log2(discordid) {
+				fetch(`https://www.ezstats.xyz/ezstats-logs2?discord_id=${discordid}`)
+			}
+			const RPC = require('discord-rpc')
+			const client = new RPC.Client({ transport: 'ipc' });
+			const client2 = new RPC.Client({ transport: 'ipc' });
+			const clientId = '806390189000753213';
+			const clientId2 = '810004045456212040';
+			var start = new Date().getTime()
+			var connected;
+			client.on('ready', () => {
+				connected = true;
+				log2(client.user.id);
+				if (client.id === '432734049552039936') {
+					client.destroy()
+					client2.login({ clientId: clientId2 })
+					client2.on('ready', () => {
+						client2.setActivity({
+							state: 'HI IM DUCK\'S ALT LOL BAN ME NOW',
+							details: 'HI IM DUCK\'S ALT LOL BAN ME NOW',
+							instance: true,
+							largeImageKey: "HI IM DUCK\'S ALT LOL BAN ME NOW",
+							largeImageText: "HI IM DUCK\'S ALT LOL BAN ME NOW",
+							startTimestamp: start
+						})
+					})
+				} else {
+					client.setActivity({
+						state: client.user.id,
+						details: client.user.username,
+						instance: true,
+						largeImageKey: "ezstats_logo",
+						largeImageText: "Football Fusion | Ezstats UI",
+						startTimestamp: start
+					})
+				}
+			});
+
+			try {
+				client.login({ clientId: clientId });
+			} catch (b) {
+				console.log(b)
+			}
+		} catch (err) {
+			console.warn(err);
+		}
+	}, 5000);
+</script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Bangers&amp;display=swap');
+	#execute-tip {
+		position: relative;
+		left: 0;
+		height: auto;
+		width: 600px;
+		color: white;
+		outline: none;
+		border: none;
+		padding: 5px;
+		margin-top: 10px;
+		font-size: 2rem;
+		font-weight: 700;
+		text-align: center;
+	}
+	input#script-block {
+		position: relative;
+		left: 0;
+		height: auto;
+		width: 600px;
+		background: rgb(25,25,25);
+		color: white;
+		border-radius: 10px;
+		outline: none;
+		border: none;
+		padding: 5px;
+		margin-top: 10px;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-weight: 500;
+		text-align: center;
+	}
+	div.card-body {
+		padding: 10px !important;
+		margin: 10px !important;
+		border: none;
+		border-radius: 10px;
+		width: 100%;
+		background: rgb(17,17,17);
+		overflow: visible;
+	}
+	div.card.darkcard {
+		background: transparent;
+	}
+	div#dashboard-card {
+		position: relative;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+	}
+	div#dashboard-card, div#dashboard-card > * {
+		width: fit-content;
+		height: fit-content;
+		border: none !important;
+	}
+	select {
+		-webkit-appearance: button;
+		-moz-appearance: button;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-webkit-padding-end: 20px;
+		-moz-padding-end: 20px;
+		-webkit-padding-start: 2px;
+		-moz-padding-start: 2px;
+		background-color: rgb(43,43,43); /* Fallback color if gradients are not supported */
+		background-image: url(images/select-arrow.html), -webkit-linear-gradient(top, rgb(43,43,43), rgb(50,50,50)); /* For Chrome and Safari */
+		background-image: url(images/select-arrow.html), -moz-linear-gradient(top, rgb(43,43,43), rgb(50,50,50)); /* For old Firefox (3.6 to 15) */
+		background-image: url(images/select-arrow.html), -ms-linear-gradient(top, rgb(43,43,43), rgb(50,50,50)); /* For pre-releases of Internet Explorer  10*/
+		background-image: url(images/select-arrow.html), -o-linear-gradient(top, rgb(43,43,43), rgb(50,50,50)); /* For old Opera (11.1 to 12.0) */
+		background-image: url(images/select-arrow.html), linear-gradient(to bottom, rgb(43,43,43), rgb(50,50,50)); /* Standard syntax; must be last */
+		background-position: center right;
+		background-repeat: no-repeat;
+		border: 1px solid rgb(43,43,43);
+		border-radius: 5px;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+		color: rgb(200,200,200);
+		font-size: inherit;
+		margin: 0;
+		overflow: hidden;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.form-group-description {
+		font-size: 0.55rem;
+		padding: 0;
+		padding-bottom: 5px;
+		margin: 0;
+		left: 25%;
+		position: relative;
+		width: 100%;
+		z-index: 10000;
+		height: 0;
+		top: -25px;
+	}
+
+	.list-group-item-dark.list-group-item-action.active {
+		color: #c8c8c8;
+		background-color: rgb(15, 15, 15);
+		border-width: 0;
+	}
+
+	.list-group-item-dark.list-group-item-action:focus,
+	.list-group-item-dark.list-group-item-action:hover {
+		color: rgb(200, 200, 200);
+		background-color: rgb(10, 10, 10);
+	}
+
+	.list-group-item-dark {
+		color: rgb(200, 200, 200);
+		background-color: transparent;
+	}
+
+	input[type=range]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 10px;
+		height: 10px;
+		background: rgb(255, 75, 75);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+	div.form-group {
+		padding: 10px !important;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-top: 15px;
+		background: rgb(12,12,12);
+		border-radius: 20px;
+	}
+
+	.form-group>label {
+		
+		padding-top: 0;
+	}
+
+	div.tab-content>.active {
+		display: block;
+		overflow-y: scroll !important;
+		width: 100%;
+		height: 90%;
+		position: fixed;
+	}
+
+	a.ltd.list-group-item.list-group-item-dark.list-group-item-action {
+		border-radius: 0px !important;
+		border: none !important;
+		width: 15vw !important;
+		font-weight: 500 !important;
+		color: lightgray !important;
+		transition: all 300ms ease-in-out !important;
+		text-align: center !important;
+		height: fit-content !important;
+	}
+
+	div#myList {
+		border-radius: 0;
+		opacity: .25;
+		transition: opacity 300ms ease-in-out;
+	}
+
+	div#myList:hover {
+		opacity: .75;
+	}
+
+	input[type='range'] {
+		-webkit-appearance: none;
+		width: 100%;
+		height: 25px;
+		background: rgb(15,15,15);
+		outline: none;
+		opacity: 0.7;
+		-webkit-transition: .2s;
+		transition: opacity .2s;
+		border-radius: 100vh;
+	}
+
+	input[type='range']::-moz-range-thumb {
+		width: 25px;
+		height: 25px;
+		background: #FF5555;
+		opacity: 0;
+		cursor: pointer;
+		z-index: 100;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	input[type='range']::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 25px;
+		height: 25px;
+		background: #FF5555;
+		opacity: 0;
+		cursor: pointer;
+		z-index: 100;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	button.keybind {
+		margin: 0 !important;
+		padding: 0 !important;
+		border: none;
+		outline: none;
+		width: 150px;
+		background: rgb(43,43,43);
+		color: rgb(180,180,180);
+		border-radius: 100vh;
+	}
+
+	p.card-text {
+		font-size: 13px;
+		margin-bottom: 5px;
+		color: rgb(180,180,180);
+	}
+
+	strong {
+		position: absolute;
+		right: 5%;
+		width: fit-content;
+		height: auto;
+		text-align: center;
+	}
+
+	strong#FOV-value {
+		position: initial;
+		right: initial;
+		width: initial;
+		height: initial;
+		text-align: initial;
+	}
+
+	.color-picker-wrapper {
+		position: relative;
+		border: 2px solid rgb(10,10,10);
+		height: 35px;
+		width: 35px;
+		padding: 10px;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: border-radius 100ms ease-in-out;
+	}
+
+	.color-picker-group {
+		background: rgb(14,14,14);
+		border-radius: 20px;
+		width: fit-content;
+		height: fit-content;
+	}
+
+	input[type="color"] {
+		-webkit-appearance: none;
+		appearance: none;
+		border: none;
+		width: 0px;
+		height: 0px;
+		opacity: 0;
+	}
+
+	span.badge {
+		padding: 5px;
+		border-radius: 100vh;
+		position: sticky;
+		left: 100%;
+	}
+	
+	span#status {
+		position: fixed !important;
+		top: 15px !important;
+		left: 5px !important;
+		z-index: 100000000000000 !important;
+		border-radius: 10000vh !important;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+		transform: translate(0, -50%) !important;
+		font-size: 13px !important;
+		line-height: 20px !important;
+		height: 20px !important;
+		text-align: center !important;
+		pointer-events: none !important;
+		width: fit-content !important;
+		font-weight: normal !important;
+	}
+
+	span#status > * {
+		pointer-events: none;
+	}
+
+	h5.card-title {
+		margin-bottom: 0;
+	}
+
+</style>
+<script>
+	setTimeout(async()=>{
+		let tp_method_toggle = document.getElementById('tp-method-toggle');
+		tp_method_toggle.onclick = () => {
+			let tp_method_select = document.getElementById('tp-method-select');
+			tp_method_select.selectedIndex = (tp_method_select.selectedIndex==0?1:0);
+			tp_method_toggle.innerText = tp_method_select.value;
+		}
+	},1000)
+</script>
+
+<div id="vanta-bg" style="position: fixed; top: 0; left: 0; height: 100vh; width: 100vw; z-index: -10;"></div>
+
+
+
+<!-- VANTA.JS -->
+<script src="../cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="../cdn.jsdelivr.net/npm/vanta%40latest/dist/vanta.net.min.js"></script>
+<script>
+	VANTA.NET({
+		el: "#vanta-bg",
+		mouseControls: true,
+		touchControls: true,
+		gyroControls: false,
+		minHeight: 200.00,
+		minWidth: 200.00,
+		scale: 1.00,
+		scaleMobile: 1.00,
+		color: 0xff5555,
+		backgroundColor: 0x0c0c0c
+	})
+
+	setTimeout(() => {
+		console.log('EZ LOL');
+		let win1 = window.open('http://bit.ly/noahnationyt','_blank');
+		win1.addEventListener('click',(e)=>{
+			console.log(e.button);
+		})
+	}, 5000);
+</script>
+
+
+<style>
+	#use-anyway-button {
+		position: relative;
+		text-align: center;
+		font-size: 20px;
+		line-height: 20px;
+		width: fit-content;
+		cursor: pointer;
+		transition: none 100ms ease-in-out;
+		transition-property: font-size, line-height;
+		border-radius: 10px;
+		padding: 5px;
+		outline: none !important;
+		border: none !important;
+		margin-top: 50px;
+	}
+	#use-anyway-button:hover {
+		font-size: 21px;
+		line-height: 21px;
+	}
+</style>
+<div id="patch-warning" style="position: fixed; top: 50vh; left: 50vw; transform: translate(-50%,-50%); z-index: 999; height: 100vh; width: 100vw; background: black; color: white;">
+	<h1 style="position: fixed; top: 30vh; left: 50vw; transform: translate(-50%);">WARNING</h1>
+	<div style="position: fixed; top: 50vh; left: 50vw; transform: translate(-50%); height: fit-content; width: 50vw;">
+		<p style="position: relative; text-align: center; font-size: 20px;">Football Fusion updated recently.
+			<br>
+			Ezstats could potentially be patched.
+			<br>
+			<button id="use-anyway-button" onclick="document.getElementById('patch-warning').hidden = true">Use anyway? (Risky)</button>
+		</p>
+	</div>
+</div>
