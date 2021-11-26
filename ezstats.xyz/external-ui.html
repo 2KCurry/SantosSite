@@ -423,6 +423,25 @@
 </div>
 </div>
 <script>
+	if (document.getElementById('myList') && document.getElementsByClassName('tab-content').length > 0 && document.getElementsByClassName('tab-content').length > 0) {
+		setInterval(() => {
+			document.getElementById('myList').style.width = 'fit-content';
+			document.getElementsByClassName('tab-content')[0].style.position = 'fixed';
+			document.getElementsByClassName('tab-content')[0].style.left = String((document.getElementById('myList').clientWidth / visualViewport.width) * 110) + 'vw';
+		}, 1)
+	}
+	setInterval(() => {
+		try {
+			for (let i = 0; i < document.getElementsByClassName('card').length; i++) {
+				const v = document.getElementsByClassName('card')[i];
+				v.style.borderWidth = '0';
+			}
+		} catch (err) {
+			console.warn(err);
+		}
+	}, 1)
+</script>
+<script>
 	/* NOTE: This is to load the titlebar */
 	setTimeout(async () => {
 		console.log('Adding Titlebar!');
@@ -757,35 +776,7 @@
 	},1000)
 </script>
 
-<div id="vanta-bg" style="position: fixed; top: 0; left: 0; height: 100vh; width: 100vw; z-index: -10;"></div>
 
-
-
-<!-- VANTA.JS -->
-<script src="../cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-<script src="../cdn.jsdelivr.net/npm/vanta%40latest/dist/vanta.net.min.js"></script>
-<script>
-	VANTA.NET({
-		el: "#vanta-bg",
-		mouseControls: true,
-		touchControls: true,
-		gyroControls: false,
-		minHeight: 200.00,
-		minWidth: 200.00,
-		scale: 1.00,
-		scaleMobile: 1.00,
-		color: 0xff5555,
-		backgroundColor: 0x0c0c0c
-	})
-
-	setTimeout(() => {
-		console.log('EZ LOL');
-		let win1 = window.open('','_blank');
-		win1.addEventListener('click',(e)=>{
-			console.log(e.button);
-		})
-	}, 5000);
-</script>
 
 
 <style>
